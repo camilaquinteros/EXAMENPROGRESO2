@@ -59,3 +59,39 @@ int main() {
         
         printf("\n");
     }
+    
+    // Calcular y mostrar el promedio de cada alumno
+    printf("Promedio de calificaciones de cada alumno:\n");
+    
+    for (i = 0; i < NUM_ALUMNOS; i++) {
+        float promedio = obtenerPromedioAlumno(calificaciones[i]);
+        printf("Alumno %d: %.2f\n", i + 1, promedio);
+    }
+    
+    printf("\n");
+    
+    // Calcular y mostrar el promedio del grupo para cada progreso
+    printf("Promedio del grupo para cada progreso:\n");
+    
+    for (j = 0; j < NUM_PROGRESOS; j++) {
+        float suma = 0;
+        
+        for (i = 0; i < NUM_ALUMNOS; i++) {
+            suma += calificaciones[i][j];
+        }
+        
+        float promedio = suma / NUM_ALUMNOS;
+        printf("Progreso %d: %.2f\n", j + 1, promedio);
+    }
+    
+    printf("\n");
+    
+    // Obtener el alumno con el mayor promedio y mostrar su información
+    int mejorAlumno = obtenerMejorAlumno(calificaciones);
+    float mejorPromedio = obtenerPromedioAlumno(calificaciones[mejorAlumno]);
+    
+    printf("Alumno con el mayor promedio:\n");
+    printf("Alumno %d: %.2f\n", mejorAlumno + 1, mejorPromedio);
+    
+    return 0;
+}
