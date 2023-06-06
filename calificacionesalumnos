@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+#define NUM_ALUMNOS 23
+#define NUM_PROGRESOS 3
+
+float obtenerPromedioAlumno(float calificaciones[]) {
+    float suma = 0;
+    int i;
+    
+    for (i = 0; i < NUM_PROGRESOS; i++) {
+        suma += calificaciones[i];
+    }
+    
+    return suma / NUM_PROGRESOS;
+}
+
+float obtenerPromedioGrupo(float calificaciones[][NUM_PROGRESOS]) {
+    float suma = 0;
+    int i, j;
+    
+    for (i = 0; i < NUM_ALUMNOS; i++) {
+        for (j = 0; j < NUM_PROGRESOS; j++) {
+            suma += calificaciones[i][j];
+        }
+    }
+    
+    return suma / (NUM_ALUMNOS * NUM_PROGRESOS);
+}
