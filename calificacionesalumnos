@@ -26,3 +26,36 @@ float obtenerPromedioGrupo(float calificaciones[][NUM_PROGRESOS]) {
     
     return suma / (NUM_ALUMNOS * NUM_PROGRESOS);
 }
+
+int obtenerMejorAlumno(float calificaciones[][NUM_PROGRESOS]) {
+    int mejorAlumno = 0;
+    float mejorPromedio = obtenerPromedioAlumno(calificaciones[0]);
+    int i;
+    
+    for (i = 1; i < NUM_ALUMNOS; i++) {
+        float promedio = obtenerPromedioAlumno(calificaciones[i]);
+        
+        if (promedio > mejorPromedio) {
+            mejorAlumno = i;
+            mejorPromedio = promedio;
+        }
+    }
+    
+    return mejorAlumno;
+}
+
+int main() {
+    float calificaciones[NUM_ALUMNOS][NUM_PROGRESOS];
+    int i, j;
+    
+    // Leer las calificaciones de los alumnos
+    for (i = 0; i < NUM_ALUMNOS; i++) {
+        printf("Ingrese las calificaciones del alumno %d:\n", i + 1);
+        
+        for (j = 0; j < NUM_PROGRESOS; j++) {
+            printf("Progreso %d: ", j + 1);
+            scanf("%f", &calificaciones[i][j]);
+        }
+        
+        printf("\n");
+    }
